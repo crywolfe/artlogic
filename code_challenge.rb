@@ -1,6 +1,4 @@
-# require 'pry'
-require 'rspec'
-
+# require 'rspec'
 
 def convert_raw_entry(num)
   @num = num
@@ -113,4 +111,4 @@ def menu
   end
 end
 
-# menu
+menu
