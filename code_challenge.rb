@@ -1,5 +1,8 @@
 # require 'rspec'
 
+# The following five methods 'convertRawEntry', 'make2Bytes', 'pack', 'makeEncodedHex', and 'encode' encode a decimal.
+
+
 def convertRawEntry(num)
    @num = num
    if @num > 8192 || @num < -8192
@@ -12,17 +15,15 @@ end
 
 def make2Bytes
    bit14 = @num.to_s(2)
-   while bit14.length < 7
-      bit14 = "0" + bit14
-   end
+   make(bit14, 7)
    @byte_1 = bit14.slice(7,15)
    @byte_2 = bit14.slice(0,7)
 end
 
 def pack
-   @byte_1_16 = "0" + @byte_1
-   @byte_2_16 = "0" + @byte_2
-   @bytes_2 = @byte_2_16 + @byte_1_16
+   byte_1_16 = "0" + @byte_1
+   byte_2_16 = "0" + @byte_2
+   @bytes_2 = byte_2_16 + byte_1_16
 end
 
 def makeEncodedHex
@@ -60,16 +61,14 @@ def decode(hex_num)
 end
 
 def convertHex(hex_num)
-   while hex_num.length < 4
-      hex_num = "0" + hex_num
-   end
-   @byte_1 = hex_num.slice(2,4).hex.to_s(2)
-   @byte_1 = make(@byte_1, 7)
+   make(hex_num, 4)
+   byte_1 = hex_num.slice(2,4).hex.to_s(2)
+   byte_1 = make(byte_1, 7)
 
-   @byte_2 = hex_num.slice(0,2).hex.to_s(2)
-   @byte_2 = make(@byte_2, 7)
+   byte_2 = hex_num.slice(0,2).hex.to_s(2)
+   byte_2 = make(byte_2, 7)
 
-   former_byte = "00" + @byte_2 + @byte_1
+   former_byte = "00" + byte_2 + byte_1
    @final_decimal = former_byte.to_i(2) - 8192
 end
 
