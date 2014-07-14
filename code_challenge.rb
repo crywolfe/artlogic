@@ -10,7 +10,7 @@ def convertRawEntry(num)
    else
       @num = @num + 8192
    end
-   @num
+   return @num
 end
 
 def make2Bytes
@@ -29,7 +29,7 @@ end
 def makeEncodedHex
    @encoded_hex = @bytes_2.to_i(2).to_s(16)
    make(@encoded_hex, 4)
-   @encoded_hex
+   return @encoded_hex
 end
 
 def encode(num)
@@ -77,7 +77,7 @@ def make(byte, length)
    while byte.length < length
       byte = "0" + byte
    end
-   byte
+   return byte
 end
 
 # The 'menu' method creates a text user interface menu

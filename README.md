@@ -18,6 +18,6 @@ In order to test this code take the following steps.
 
 1. open `code_challenge.rb`
 2. uncomment line 1 `require 'rspec'`
-3. comment line 114 `menu`
+3. comment line 111 `menu`
 4. save
 5. `$ rspec`
