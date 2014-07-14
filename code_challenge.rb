@@ -57,6 +57,8 @@ def decode(hex_num)
    puts ""
 end
 
+# Converts hex to decimal
+
 def convertHex(hex_num)
    make(hex_num, 4)
    byte_1 = hex_num.slice(2,4).hex.to_s(2)
@@ -68,6 +70,8 @@ def convertHex(hex_num)
    former_byte = "00" + byte_2 + byte_1
    @final_decimal = former_byte.to_i(2) - 8192
 end
+
+# 'make' creates a string with leading 0s to ensure length is the required length
 
 def make(byte, length)
    while byte.length < length
