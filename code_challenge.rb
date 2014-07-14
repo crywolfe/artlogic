@@ -28,10 +28,6 @@ end
 
 def makeEncodedHex
    @encoded_hex = @bytes_2.to_i(2).to_s(16)
-
-   # while @encoded_hex.length < 4
-   #    @encoded_hex = "0" + @encoded_hex
-   # end
    make(@encoded_hex, 4)
    @encoded_hex
 end
